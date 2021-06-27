@@ -1,0 +1,49 @@
+{
+  "name": "@hanbi/web-utils",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "A small collection of test helpers for the web",
+  "main": "lib/main.js",
+  "files": [
+    "lib/!(test)"
+  ],
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "lint": "eslint \"src/**/*.ts\"",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "test": "web-test-runner \"lib/test/**/*_test.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/43081j/hanbi-web.git"
+  },
+  "keywords": [
+    "hanbi",
+    "mocks",
+    "tests",
+    "assertions"
+  ],
+  "author": "James Garbutt (https://github.com/43081j)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/43081j/hanbi-web/issues"
+  },
+  "homepage": "https://github.com/43081j/hanbi-web#readme",
+  "devDependencies": {
+    "@types/mocha": "^8.2.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "@web/test-runner": "^0.13.12",
+    "@web/test-runner-puppeteer": "^0.10.0",
+    "eslint": "^7.29.0",
+    "eslint-config-google": "^0.14.0",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.4",
+    "uvu": "^0.5.1"
+  }
+}
