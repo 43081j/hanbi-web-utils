@@ -1,6 +1,6 @@
 {
   "name": "@hanbi/web-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "A small collection of test helpers for the web",
   "main": "lib/main.js",
