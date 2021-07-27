@@ -52,6 +52,31 @@ suite('waitForSelector', () => {
 
     assert.is(result, pTag);
   });
+
+  test('resolves when selector exists in shadow root', async () => {
+    const node = document.createElement('div');
+    const shadow = node.attachShadow({mode: 'open'});
+    const pTag = document.createElement('p');
+    shadow.appendChild(pTag);
+
+    const result = await lib.waitForSelector(shadow, 'p');
+
+    assert.is(result, pTag);
+  });
+
+  test('resolves when selector exists in document', async () => {
+    const node = document.createElement('div');
+
+    try {
+      document.body.appendChild(node);
+
+      const result = await lib.waitForSelector(document, 'div');
+
+      assert.is(result, node);
+    } finally {
+      node.remove();
+    }
+  });
 });
 
 suite('waitForFrame', () => {
