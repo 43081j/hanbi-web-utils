@@ -11,17 +11,17 @@ export function waitForFrame(): Promise<void> {
 }
 
 export function waitForSelector<K extends keyof HTMLElementTagNameMap>(
-  node: HTMLElement,
+  node: ParentNode,
   selector: K,
   attempts?: number
 ): Promise<HTMLElementTagNameMap[K]>;
 export function waitForSelector<K extends keyof SVGElementTagNameMap>(
-  node: HTMLElement,
+  node: ParentNode,
   selector: K,
   attempts?: number
 ): Promise<SVGElementTagNameMap[K]>;
 export function waitForSelector(
-  node: HTMLElement,
+  node: ParentNode,
   selector: string,
   attempts?: number
 ): Promise<Element>;
@@ -33,7 +33,7 @@ export function waitForSelector(
  * @return {Promise}
  */
 export function waitForSelector(
-  node: HTMLElement,
+  node: ParentNode,
   selector: string,
   attempts: number = 20
 ): Promise<Element> {
